@@ -20,3 +20,19 @@ class Pesanan(val pesananId: String, val kamar: Kamarkos) {
         println("[Pesanan] Kamar ${kamar.nomorkamar} berhasil dipesan.")
     }
 }
+
+class Transaksi(val transaksiId: String, val jumlahBayar: Int, val metode: String) {
+    fun proses() { println("Memproses pembayaran Rp$jumlahBayar via $metode...") }
+    
+    fun getStruk(nama: String, nim: String) = """
+        ====================================
+        STRUK LUNAS APLIKASI KOS ITK
+        ====================================
+        ID Transaksi: $transaksiId
+        Nama Penyewa: $nama
+        NIM         : $nim
+        Total Bayar : Rp$jumlahBayar
+        Status      : LUNAS
+        ====================================
+    """.trimIndent()
+}
